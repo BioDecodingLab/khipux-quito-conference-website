@@ -1,0 +1,61 @@
+---
+import KhipuLogo from "../assets/khipu-logo.svg";
+import Bars from "../assets/bars.svg";
+import Close from "../assets/close.svg";
+---
+
+<!-- Mobile Navigation -->
+<nav class="fixed inset-x-0 top-0 flex p-4 md:hidden">
+  <div class="flex grow items-center justify-center gap-x-8">
+    <KhipuLogo
+      class="text-khipu-orange h-20 w-auto origin-center -rotate-90"
+      role="img"
+      aria-label="Khipu Logo"
+    />
+    <p class="text-khipu-white text-2xl font-bold text-nowrap">KHIPUx Quito</p>
+  </div>
+  <!-- Arrow Icon for the menu -->
+  <div class="flex items-center justify-center">
+    <button
+      id="open-menu-button"
+      class="text-khipu-white flex items-center justify-end p-2 font-bold"
+    >
+      <Bars class="text-khipu-orange h-8 w-auto" role="img" aria-label="Bars" />
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="bg-khipu-black fixed inset-0 hidden max-h-screen p-8"
+>
+  <!-- Container -->
+  <div class="flex flex-col justify-center gap-y-8">
+    <!-- Close Button -->
+    <button id="close-menu-button" class="flex items-center justify-end p-2">
+      <Close
+        class="text-khipu-white h-8 w-auto"
+        role="img"
+        aria-label="Close"
+      />
+    </button>
+    <!-- Navigation Links -->
+    <div
+      class="text-khipu-white flex flex-col gap-y-4 text-end text-2xl font-bold uppercase"
+    >
+      <a href="/">About</a>
+      <a href="/">Speakers</a>
+      <a href="/">Schedule</a>
+      <a href="/" class="text-khipu-orange">Register Now!</a>
+    </div>
+    <!-- Big Khipu Logo -->
+    <div class="flex items-center justify-center">
+      <KhipuLogo
+        class="text-khipu-white h-auto w-full"
+        role="img"
+        aria-label="Khipu Logo"
+      />
+    </div>
+  </div>
+</div>

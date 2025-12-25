@@ -1,0 +1,44 @@
+---
+import KhipuLogo from "../assets/khipu-logo.svg";
+import KhipuCircle from "../assets/khipu-circle.svg";
+---
+
+<!-- Desktop Navigation -->
+<nav
+  class="fixed hidden w-full items-center justify-between gap-x-4 px-8 py-4 md:flex"
+>
+  <!-- Logo and Text -->
+  <div class="flex shrink-0 items-center gap-x-8">
+    <KhipuLogo
+      class="text-khipu-orange h-20 w-auto origin-center -rotate-90"
+      role="img"
+      aria-label="Khipu Logo"
+    />
+    <p class="text-khipu-white text-3xl font-bold">KHIPUx Quito</p>
+  </div>
+
+  <!-- Navigation Links  -->
+  <div
+    class="text-khipu-white flex min-w-0 flex-1 items-center justify-center gap-x-8 font-bold"
+  >
+    <a href="/">About</a>
+    <a href="/">Speakers</a>
+    <a href="/">Schedule</a>
+  </div>
+
+  <div class="flex shrink-0">
+    <!-- Container for Button and Circle -->
+    <div class="relative">
+      <button
+        class="bg-khipu-orange text-khipu-white rounded-full px-8 py-4 font-bold text-nowrap"
+      >
+        Register Now!
+      </button>
+      <KhipuCircle
+        class="text-khipu-orange absolute -z-10 w-full"
+        role="img"
+        aria-label="Khipu Circle"
+      />
+    </div>
+  </div>
+</nav>

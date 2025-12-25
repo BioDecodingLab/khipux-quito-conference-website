@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
+import NavbarDesktop from "../components/NavbarDesktop.astro";
+import NavbarMobile from "../components/NavbarMobile.astro";
 ---
 
 <!doctype html>
@@ -12,12 +13,11 @@ import Navbar from "../components/Navbar.astro";
     <meta name="generator" content={Astro.generator} />
     <title>KhipuX Quito 2026</title>
   </head>
-  <body class="bg-khipu-black">
+  <body class="bg-khipu-black font-montserrat">
     <!-- Container -->
-    <div
-      class="font-montserrat mx-auto flex min-h-screen max-w-7xl flex-col px-4"
-    >
-		<Navbar />
+    <div class="mx-auto flex min-h-screen max-w-7xl px-8">
+      <NavbarDesktop />
+      <NavbarMobile />
     </div>
   </body>
 </html>
