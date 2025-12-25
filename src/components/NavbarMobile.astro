@@ -5,7 +5,7 @@ import Close from "../assets/close.svg";
 ---
 
 <!-- Mobile Navigation -->
-<nav class="fixed inset-x-0 top-0 flex p-4 md:hidden">
+<nav class="sticky top-0 z-50 flex p-4 md:hidden">
   <div class="flex grow items-center justify-center gap-x-8">
     <KhipuLogo
       class="text-khipu-orange h-20 w-auto origin-center -rotate-90"
@@ -28,7 +28,7 @@ import Close from "../assets/close.svg";
 <!-- Mobile Menu Overlay -->
 <div
   id="mobile-menu"
-  class="bg-khipu-black mobile-menu-overlay fixed inset-0 hidden max-h-screen p-8"
+  class="bg-khipu-black mobile-menu-overlay fixed inset-0 z-60 hidden max-h-screen p-8"
   data-state="closed"
 >
   <!-- Container -->
