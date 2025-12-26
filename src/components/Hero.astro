@@ -1,0 +1,34 @@
+---
+// Hero component with responsive background images and overlay
+---
+
+<section class="hero relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">
+  <!-- Desktop Background Image -->
+  <img
+    src="/hero-image-desktop.webp"
+    alt="KhipuX Quito Conference"
+    class="absolute inset-0 w-full h-full object-cover hidden md:block"
+  />
+  <!-- Mobile Background Image -->
+  <img
+    src="/hero-image-mobile.webp"
+    alt="KhipuX Quito Conference"
+    class="absolute inset-0 w-full h-full object-cover block md:hidden"
+  />
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-khipu-black/70 via-khipu-black/50 to-khipu-black/80"></div>
+
+  <!-- Content Section -->
+  <div class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 py-16 text-center">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .hero {
+    /* Ensure the hero takes up good viewport space */
+    min-height: max(80vh, 500px);
+  }
+</style>
+
