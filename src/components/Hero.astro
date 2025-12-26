@@ -2,32 +2,49 @@
 // Hero component with responsive background images and overlay
 ---
 
-<section class="hero relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">
+<section
+  class="hero relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden"
+>
   <!-- Desktop Background Image -->
   <img
     src="/hero-image-desktop.webp"
     alt="KhipuX Quito Conference"
-    class="absolute inset-0 w-full h-full object-cover hidden md:block"
+    class="absolute inset-0 hidden h-full w-full object-cover md:block"
   />
   <!-- Mobile Background Image -->
   <img
     src="/hero-image-mobile.webp"
     alt="KhipuX Quito Conference"
-    class="absolute inset-0 w-full h-full object-cover block md:hidden"
+    class="absolute inset-0 block h-full w-full object-cover md:hidden"
   />
 
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-linear-to-b from-khipu-black/70 via-khipu-black/50 to-khipu-black/80"></div>
+  <div
+    class="from-khipu-black/70 via-khipu-black/50 to-khipu-black/80 absolute inset-0 bg-linear-to-b"
+  >
+  </div>
 
   <!-- Content Section -->
-  <div class="relative z-10 flex flex-col items-start  justify-center w-full h-full px-4 py-16 text-left text-khipu-white gap-y-8">
-    <h1 class="text-5xl md:text-7xl font-bold"><span class="uppercase">Khipu</span>x Quito 2026</h1>
-    <h2 class="text-2xl md:text-4xl font-semibold w-full md:w-1/2">Democratizing AI in Bioimage and Medical Imaging</h2>
+  <div
+    class="text-khipu-white relative z-10 flex h-full w-full flex-col items-start justify-center gap-y-8 px-4 py-16 text-left"
+  >
+    <h1 class="text-5xl font-bold md:text-7xl">
+      <span class="uppercase">Khipu</span>x Quito 2026
+    </h1>
+    <h2 class="w-full text-2xl font-semibold md:w-1/2 md:text-4xl">
+      Democratizing AI in Bioimage and Medical Imaging
+    </h2>
     <!-- Buttons -->
-     <div class="flex flex-row flex-wrap gap-4 md:gap-x-8">
-      <button class="bg-khipu-orange text-khipu-white relative z-10 rounded-full px-6 py-3 md:px-8 md:py-4 font-bold text-nowrap">Apply Now!</button>
-      <button class="bg-khipu-orange text-khipu-white relative z-10 rounded-full px-6 py-3 md:px-8 md:py-4 font-bold text-nowrap">Program Overview</button>
-     </div>
+    <div class="flex flex-row flex-wrap gap-4 md:gap-x-8">
+      <button
+        class="bg-khipu-orange text-khipu-white relative z-10 rounded-full px-6 py-3 font-bold text-nowrap md:px-8 md:py-4"
+        >Apply Now!</button
+      >
+      <button
+        class="bg-khipu-orange text-khipu-white relative z-10 rounded-full px-6 py-3 font-bold text-nowrap md:px-8 md:py-4"
+        >Program Overview</button
+      >
+    </div>
   </div>
 </section>
 
@@ -37,4 +54,3 @@
     min-height: max(80vh, 500px);
   }
 </style>
-
