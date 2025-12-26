@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import NavbarDesktop from "../components/NavbarDesktop.astro";
 import NavbarMobile from "../components/NavbarMobile.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <!doctype html>
@@ -15,9 +16,10 @@ import NavbarMobile from "../components/NavbarMobile.astro";
   </head>
   <body class="bg-khipu-black font-montserrat">
     <!-- Container -->
-    <div class="mx-auto flex min-h-screen max-w-7xl px-8">
+    <div class="mx-auto flex min-h-screen max-w-7xl flex-col md:px-8">
       <NavbarDesktop />
       <NavbarMobile />
+      <Hero />
     </div>
   </body>
 </html>
