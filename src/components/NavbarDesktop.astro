@@ -20,9 +20,9 @@ import KhipuCircle from "../assets/khipu-circle.svg";
   <div
     class="text-khipu-white flex min-w-0 flex-1 flex-wrap items-center justify-center gap-x-8 font-bold"
   >
-    <a href="/">About</a>
-    <a href="/">Speakers</a>
-    <a href="/">Schedule</a>
+    <a href="#about" class="nav-link hover:text-khipu-orange transition-colors">About</a>
+    <a href="#speakers" class="nav-link hover:text-khipu-orange transition-colors">Speakers</a>
+    <a href="#schedule" class="nav-link hover:text-khipu-orange transition-colors">Schedule</a>
   </div>
 
   <div class="relative flex shrink-0 items-center justify-center">
@@ -32,11 +32,28 @@ import KhipuCircle from "../assets/khipu-circle.svg";
       role="img"
       aria-label="Khipu Circle"
     />
-    <button
-      class="bg-khipu-orange text-khipu-white relative z-10 rounded-full px-8 py-4 font-bold text-nowrap"
+    <a
+      href="#register"
+      class="nav-link bg-khipu-orange text-khipu-white relative z-10 rounded-full px-8 py-4 font-bold text-nowrap hover:opacity-90 transition-opacity"
     >
       Register Now!
-    </button>
+    </a>
   </div>
   </div>
 </nav>
+
+<script>
+  // Smooth scroll for desktop nav links
+  document.querySelectorAll<HTMLAnchorElement>('nav.md\\:block .nav-link').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href?.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
