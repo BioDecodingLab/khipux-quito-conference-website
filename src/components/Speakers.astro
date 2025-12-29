@@ -26,18 +26,19 @@ const speakers = speakersData.map((speaker) => ({
   </h2>
 
   <div class="flex w-full max-w-4xl flex-col gap-12">
-    {speakers.map((speaker) => (
-      <SpeakerCard
-        name={speaker.name}
-        country={speaker.country}
-        institution={speaker.institution}
-        role={speaker.role}
-        description={speaker.description}
-        imageSrc={speaker.imageSrc}
-        github={speaker.github}
-        linkedin={speaker.linkedin}
-      />
-    ))}
+    {
+      speakers.map((speaker) => (
+        <SpeakerCard
+          name={speaker.name}
+          country={speaker.country}
+          institution={speaker.institution}
+          role={speaker.role}
+          description={speaker.description}
+          imageSrc={speaker.imageSrc}
+          github={speaker.github}
+          linkedin={speaker.linkedin}
+        />
+      ))
+    }
   </div>
 </section>
-
