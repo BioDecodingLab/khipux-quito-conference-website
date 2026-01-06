@@ -1,11 +1,31 @@
 [
   {
+    "id": "andrea-lara",
+    "name": "Andrea Lara, PhD",
+    "country": "Guatemala",
+    "institution": "Universidad Galileo",
+    "role": "Director, Biomedical Engineering Institute",
+    "description": "Director of the Biomedical Engineering Institute and founder of BiomedLab at Universidad Galileo. She holds a PhD in Biomedical Engineering from TU Graz and has research experience in artificial intelligence applied to medical image analysis. She currently leads initiatives aimed at strengthening health technology in Guatemala.",
+    "image": "lara.webp"
+  },
+  {
+    "id": "diana-mosquera",
+    "name": "Diana Mosquera",
+    "country": "Ecuador",
+    "institution": "Diversa Studio",
+    "role": "Leader in Human-Centered AI",
+    "description": "Leader in human and nature-centered AI with over 10 years of experience developing ethical and socially innovative technology projects. Specialist in data justice and AI ethics, she combines technical expertise with social commitment to drive a more just, transparent, and humane digital transformation. She leads multidisciplinary teams with strategic vision and a focus on sustainable regional impact.",
+    "image": "mosquera.webp",
+    "github": "https://github.com/DiversaStudio",
+    "linkedin": "https://ec.linkedin.com/company/diversa-ai"
+  },
+  {
     "id": "agustin-corbat",
-    "name": "Agustín Corbat",
+    "name": "Agustín Corbat, PhD",
     "country": "Argentina",
     "institution": "Universidad de Buenos Aires",
-    "role": "Image Analyst / Bioimage Analyst",
-    "description": "PhD in Physics | Deep learning + physics-based modeling | Builds automated image-analysis pipelines to extract quantitative metrics | Experience across medical imaging, agriculture phenotyping, and digital petrography | Freelance consulting + training/courses",
+    "role": "Bioimage Analyst",
+    "description": "Bioimage Analyst with a PhD in Physics, specializing in transforming images into precise quantitative data. He uses his interdisciplinary expertise in physics and medicine to apply advanced image analysis and mathematical modeling to solve complex challenges in the biomedical and petrography sectors. Dr. Corbat has held research and analyst roles at the University of Buenos Aires, Uppsala University, and the Karolinska Institute, and he provides expert consulting and courses on image analysis.",
     "image": "corbat.webp",
     "github": "https://github.com/acorbat",
     "linkedin": "https://www.linkedin.com/in/agust%C3%ADn-andr%C3%A9s-corbat-1a7a6b89/"

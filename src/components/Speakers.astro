@@ -3,10 +3,14 @@ import SpeakerCard from "./SpeakerCard.astro";
 import speakersData from "../data/speakers.json";
 
 // Static imports for speaker images
+import laraImage from "../assets/speakers/lara.webp?url";
+import mosqueraImage from "../assets/speakers/mosquera.webp?url";
 import corbatImage from "../assets/speakers/corbat.webp?url";
 
 // Image lookup map - add new speaker images here
 const imageMap: Record<string, string> = {
+  "lara.webp": laraImage,
+  "mosquera.webp": mosqueraImage,
   "corbat.webp": corbatImage,
 };
 
