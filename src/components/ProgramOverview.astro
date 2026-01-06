@@ -155,7 +155,11 @@ const days = [
             <ul class="space-y-4">
               {day.items.map((item) => (
                 <li class="flex gap-3">
-                  <img src={khipuCircle.src} alt="" class="bullet-orange mt-1 h-6 w-6 shrink-0" />
+                  <img
+                    src={khipuCircle.src}
+                    alt=""
+                    class="bullet-orange mt-1 h-6 w-6 shrink-0"
+                  />
                   <div class="flex-1">
                     <span class="text-lg font-medium md:text-xl">
                       {item.title}
@@ -173,7 +177,11 @@ const days = [
                         <ul class="mt-1 space-y-2">
                           {item.panellists.map((panellist) => (
                             <li class="flex items-center gap-4 text-base text-white/70">
-                              <img src={khipuSquare.src} alt="" class="bullet-orange h-5 w-5 shrink-0 rotate-45" />
+                              <img
+                                src={khipuSquare.src}
+                                alt=""
+                                class="bullet-orange h-5 w-5 shrink-0 rotate-45"
+                              />
                               {panellist}
                             </li>
                           ))}
@@ -186,7 +194,11 @@ const days = [
                       <ul class="mt-2 ml-4 space-y-2">
                         {item.workshops.map((workshop) => (
                           <li class="flex items-start gap-4">
-                            <img src={khipuSquare.src} alt="" class="bullet-orange mt-1 h-5 w-5 shrink-0 rotate-45" />
+                            <img
+                              src={khipuSquare.src}
+                              alt=""
+                              class="bullet-orange mt-1 h-5 w-5 shrink-0 rotate-45"
+                            />
                             <div>
                               <span class="text-base text-white/90 md:text-lg">
                                 {workshop.topic}
