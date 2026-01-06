@@ -10,13 +10,6 @@ interface Props {
   linkedin?: string;
 }
 
-// Import bullet point SVGs
-import bulletPoint1 from "../assets/desc-bulletpoint-1.svg";
-import bulletPoint2 from "../assets/desc-bulletpoint-2.svg";
-import bulletPoint3 from "../assets/desc-bulletpoint-3.svg";
-
-const bulletPoints = [bulletPoint1, bulletPoint2, bulletPoint3];
-
 const {
   name,
   country,
@@ -27,18 +20,6 @@ const {
   github,
   linkedin,
 } = Astro.props;
-
-// Split description by | and trim each part
-const descriptionItems = description
-  .split("|")
-  .map((item) => item.trim())
-  .filter(Boolean);
-
-// Generate a seeded random index based on the item text (for consistency across renders)
-function getRandomBullet(text: string, index: number) {
-  const seed = text.length + index;
-  return bulletPoints[seed % bulletPoints.length];
-}
 ---
 
 <article
@@ -125,57 +106,18 @@ function getRandomBullet(text: string, index: number) {
       {role}
     </p>
 
-    <!-- Description with bullet points -->
-    <ul class="mt-2 flex flex-col gap-2 text-left">
-      {
-        descriptionItems.map((item, index) => {
-          const bullet = getRandomBullet(item, index);
-          return (
-            <li
-              class="description-item text-khipu-white flex items-start gap-3 text-base italic opacity-80 transition-all duration-300 md:text-lg"
-              style={`animation-delay: ${index * 50}ms`}
-            >
-              <img
-                src={bullet.src}
-                alt=""
-                class="h-8 w-8 shrink-0 opacity-70 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100"
-                aria-hidden="true"
-              />
-              <span class="group-hover:text-khipu-white/90">{item}</span>
-            </li>
-          );
-        })
-      }
-    </ul>
+    <!-- Divider -->
+    <div class="mt-4 h-px w-full bg-gradient-to-r from-khipu-orange via-khipu-orange/50 to-transparent"></div>
+
+    <!-- Bio -->
+    <p class="mt-4 text-sm font-semibold leading-relaxed text-white/80 transition-all duration-300 group-hover:text-white md:text-base">
+      {description}
+    </p>
   </div>
 </article>
 
 <style>
   .speaker-card {
     cursor: default;
-  }
-
-  /* Stagger animation for description items on hover */
-  .speaker-card:hover .description-item {
-    opacity: 1;
-  }
-
-  .speaker-card:hover .description-item:nth-child(1) {
-    transition-delay: 0ms;
-  }
-  .speaker-card:hover .description-item:nth-child(2) {
-    transition-delay: 50ms;
-  }
-  .speaker-card:hover .description-item:nth-child(3) {
-    transition-delay: 100ms;
-  }
-  .speaker-card:hover .description-item:nth-child(4) {
-    transition-delay: 150ms;
-  }
-  .speaker-card:hover .description-item:nth-child(5) {
-    transition-delay: 200ms;
-  }
-  .speaker-card:hover .description-item:nth-child(6) {
-    transition-delay: 250ms;
   }
 </style>
