@@ -10,6 +10,20 @@ import khipuSquareSvg from "../assets/khipu-square.svg";
     >
       <h2 class="text-4xl font-bold md:text-6xl">Apply to Participate!</h2>
 
+      <!-- Application Deadline Banner -->
+      <div
+        class="bg-khipu-orange/20 border-khipu-orange w-full rounded-xl border-2 px-6 py-5"
+      >
+        <p
+          class="text-khipu-white/80 mb-1 text-sm font-medium tracking-wider uppercase"
+        >
+          Application Deadline
+        </p>
+        <p class="text-khipu-orange text-3xl font-bold md:text-4xl">
+          31 January 2026
+        </p>
+      </div>
+
       <img
         src={horizontalBar.src}
         alt=""
@@ -18,42 +32,42 @@ import khipuSquareSvg from "../assets/khipu-square.svg";
         aria-hidden="true"
       />
 
-      <div class="w-full space-y-6 text-left">
-        <div class="flex items-start gap-4">
+      <div class="w-full space-y-8 text-left">
+        <div class="flex items-start gap-5">
           <img
             src={khipuSquareSvg.src}
             alt=""
             loading="lazy"
-            class="mt-1 h-8 w-8 shrink-0"
+            class="mt-1.5 h-10 w-10 shrink-0 md:h-12 md:w-12"
             aria-hidden="true"
           />
-          <p class="text-lg leading-relaxed font-semibold md:text-xl">
+          <p class="text-xl leading-relaxed font-semibold md:text-2xl">
             Applications open soon via online form
           </p>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-5">
           <img
             src={khipuSquareSvg.src}
             alt=""
             loading="lazy"
-            class="mt-1 h-8 w-8 shrink-0"
+            class="mt-1.5 h-10 w-10 shrink-0 md:h-12 md:w-12"
             aria-hidden="true"
           />
-          <p class="text-lg leading-relaxed font-semibold md:text-xl">
+          <p class="text-xl leading-relaxed font-semibold md:text-2xl">
             Selection based on motivation, merit, and diversity criteria.
           </p>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-5">
           <img
             src={khipuSquareSvg.src}
             alt=""
             loading="lazy"
-            class="mt-1 h-8 w-8 shrink-0"
+            class="mt-1.5 h-10 w-10 shrink-0 md:h-12 md:w-12"
             aria-hidden="true"
           />
-          <p class="text-lg leading-relaxed font-semibold md:text-xl">
+          <p class="text-xl leading-relaxed font-semibold md:text-2xl">
             Registration Fee: <span class="text-khipu-orange font-bold"
               >USD 100</span
             >
@@ -61,15 +75,15 @@ import khipuSquareSvg from "../assets/khipu-square.svg";
           </p>
         </div>
 
-        <div class="flex items-start gap-4">
+        <div class="flex items-start gap-5">
           <img
             src={khipuSquareSvg.src}
             alt=""
             loading="lazy"
-            class="mt-1 h-8 w-8 shrink-0"
+            class="mt-1.5 h-10 w-10 shrink-0 md:h-12 md:w-12"
             aria-hidden="true"
           />
-          <p class="text-lg leading-relaxed font-semibold md:text-xl">
+          <p class="text-xl leading-relaxed font-semibold md:text-2xl">
             All full-time students can apply free of charge.
           </p>
         </div>
@@ -83,12 +97,14 @@ import khipuSquareSvg from "../assets/khipu-square.svg";
         aria-hidden="true"
       />
 
-      <button
-        type="button"
+      <a
+        href="https://forms.gle/pGmuMnWdstciYJsS6"
+        target="_blank"
+        rel="noopener noreferrer"
         class="bg-khipu-orange focus-visible:outline-khipu-orange rounded-full px-8 py-4 text-lg font-bold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:px-10 md:text-xl"
       >
         Apply now!
-      </button>
+      </a>
     </div>
   </div>
 </section>
