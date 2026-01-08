@@ -152,13 +152,13 @@ const days = [
               {day.items.map((item) => (
                 <li class="timeline-item group relative pl-10 md:pl-12">
                   {/* Timeline dot */}
-                  <div class="timeline-dot absolute left-0 top-4 h-3 w-3 rounded-full bg-khipu-orange transition-all duration-300 group-hover:scale-150 group-hover:bg-khipu-white md:h-4 md:w-4"></div>
+                  <div class="timeline-dot bg-khipu-orange group-hover:bg-khipu-white absolute top-4 left-0 h-3 w-3 rounded-full transition-all duration-300 group-hover:scale-150 md:h-4 md:w-4" />
 
                   {/* Content card with hover glow */}
                   <div class="relative rounded-lg px-4 py-3 transition-all duration-300 group-hover:bg-white/5">
                     {/* Glow effect */}
-                    <div class="pointer-events-none absolute -inset-1 rounded-lg bg-khipu-orange/0 blur-xl transition-all duration-500 group-hover:bg-khipu-orange/10"></div>
-                    
+                    <div class="bg-khipu-orange/0 group-hover:bg-khipu-orange/10 pointer-events-none absolute -inset-1 rounded-lg blur-xl transition-all duration-500" />
+
                     <div class="relative">
                       <span class="text-lg font-semibold md:text-xl">
                         {item.title}
@@ -172,7 +172,9 @@ const days = [
                       {/* Panellists */}
                       {item.panellists && (
                         <div class="mt-3 ml-2">
-                          <span class="text-sm font-semibold uppercase tracking-wide text-khipu-orange">Panellists:</span>
+                          <span class="text-khipu-orange text-sm font-semibold tracking-wide uppercase">
+                            Panellists:
+                          </span>
                           <ul class="mt-2 space-y-2">
                             {item.panellists.map((panellist) => (
                               <li class="flex items-center gap-3 text-base text-white/80">
