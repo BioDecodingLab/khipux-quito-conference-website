@@ -11,6 +11,7 @@ import Speakers from "../components/Speakers.astro";
 import Partners from "../components/Partners.astro";
 import Venue from "../components/Venue.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsent from "../components/CookieConsent.astro";
 
 // Import hero images for preload
 import heroMobile from "../assets/hero-image-mobile.webp";
@@ -19,6 +20,15 @@ import heroMobile from "../assets/hero-image-mobile.webp";
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-6W08KJNTKS"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6W08KJNTKS');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -112,5 +122,73 @@ import heroMobile from "../assets/hero-image-mobile.webp";
       <Venue />
       <Footer />
     </div>
+    <CookieConsent />
+
+    <!-- Google Analytics Custom Event Tracking -->
+    <script is:inline>
+      // Track important button clicks for CV metrics
+      document.addEventListener('DOMContentLoaded', function() {
+        // Hero "Apply Now" button click
+        const heroApplyBtn = document.getElementById('hero-apply-btn');
+        if (heroApplyBtn) {
+          heroApplyBtn.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'cta_click', {
+                'event_category': 'engagement',
+                'event_label': 'Hero Apply Now Button',
+                'value': 1
+              });
+            }
+          });
+        }
+
+        // Hero "Program Overview" button click
+        const heroProgramBtn = document.getElementById('hero-program-btn');
+        if (heroProgramBtn) {
+          heroProgramBtn.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'cta_click', {
+                'event_category': 'engagement',
+                'event_label': 'Hero Program Overview Button',
+                'value': 1
+              });
+            }
+          });
+        }
+
+        // Main "Apply Now" button (CONVERSION - most important!)
+        const mainApplyBtn = document.getElementById('main-apply-btn');
+        if (mainApplyBtn) {
+          mainApplyBtn.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'generate_lead', {
+                'event_category': 'conversion',
+                'event_label': 'Application Form Click',
+                'value': 100
+              });
+            }
+          });
+        }
+
+        // Track section views (when sections come into viewport)
+        const sections = ['about', 'speakers', 'schedule', 'register'];
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && typeof gtag !== 'undefined') {
+              gtag('event', 'section_view', {
+                'event_category': 'engagement',
+                'event_label': entry.target.id + ' section viewed'
+              });
+              observer.unobserve(entry.target); // Only track once per session
+            }
+          });
+        }, { threshold: 0.5 });
+
+        sections.forEach(sectionId => {
+          const section = document.getElementById(sectionId);
+          if (section) observer.observe(section);
+        });
+      });
+    </script>
   </body>
 </html>
