@@ -3,6 +3,7 @@
 import { Image } from "astro:assets";
 import heroDesktop from "../assets/hero-image-desktop.webp";
 import heroMobile from "../assets/hero-image-mobile.webp";
+import DeadlineCountdown from "./DeadlineCountdown.astro";
 ---
 
 <section
@@ -59,16 +60,20 @@ import heroMobile from "../assets/hero-image-mobile.webp";
 
     <!-- Application Deadline -->
     <div
-      class="border-khipu-orange/50 bg-khipu-black/40 flex items-center gap-3 rounded-lg border-2 px-4 py-3 backdrop-blur-sm"
+      id="hero-deadline-box"
+      class="border-khipu-orange/50 bg-khipu-black/60 border-l-khipu-orange flex items-center gap-3 rounded-lg border-2 border-l-4 px-4 py-3 backdrop-blur-sm"
     >
       <span
-        class="text-khipu-white/80 text-sm font-medium tracking-wide uppercase md:text-base"
+        class="text-khipu-white text-sm font-semibold tracking-wide uppercase md:text-base"
         >Application Deadline:</span
       >
       <span class="text-khipu-orange text-lg font-bold md:text-xl"
-        >31 January 2026</span
+        >4 February 2026</span
       >
     </div>
+
+    <!-- Countdown Timer -->
+    <DeadlineCountdown />
 
     <!-- Buttons -->
     <div class="flex flex-row flex-wrap gap-4 md:gap-x-8">
