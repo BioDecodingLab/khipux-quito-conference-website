@@ -2,9 +2,12 @@
 // Countdown timer component for application deadline
 ---
 
-<div id="countdown-timer" class="border-khipu-orange/50 bg-khipu-black/60 border-l-khipu-orange flex items-center gap-3 rounded-lg border-2 border-l-4 px-4 py-3 backdrop-blur-sm text-base md:text-lg">
+<div
+  id="countdown-timer"
+  class="border-khipu-orange/50 bg-khipu-black/60 border-l-khipu-orange flex items-center gap-3 rounded-lg border-2 border-l-4 px-4 py-3 text-base backdrop-blur-sm md:text-lg"
+>
   <svg
-    class="h-6 w-6 text-khipu-orange md:h-7 md:w-7"
+    class="text-khipu-orange h-6 w-6 md:h-7 md:w-7"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -17,7 +20,10 @@
       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
   </svg>
   <span class="text-khipu-orange font-bold">Remaining time:</span>
-  <span id="countdown-display" class="text-khipu-white font-bold text-lg md:text-xl">
+  <span
+    id="countdown-display"
+    class="text-khipu-white text-lg font-bold md:text-xl"
+  >
     Loading...
   </span>
 </div>
