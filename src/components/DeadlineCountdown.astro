@@ -1,0 +1,80 @@
+---
+// Countdown timer component for application deadline
+---
+
+<div
+  id="countdown-timer"
+  class="border-khipu-orange/50 bg-khipu-black/60 border-l-khipu-orange flex items-center gap-3 rounded-lg border-2 border-l-4 px-4 py-3 text-base backdrop-blur-sm md:text-lg"
+>
+  <svg
+    class="text-khipu-orange h-6 w-6 md:h-7 md:w-7"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
+  <span class="text-khipu-orange font-bold">Remaining time:</span>
+  <span
+    id="countdown-display"
+    class="text-khipu-white text-lg font-bold md:text-xl"
+  >
+    Loading...
+  </span>
+</div>
+
+<script>
+  // Countdown timer logic
+  const countdownDisplay = document.getElementById("countdown-display");
+  const countdownTimer = document.getElementById("countdown-timer");
+  // Deadline: Feb 5, 2026 00:00:00 Quito Time (ECT/UTC-5) = Feb 5, 2026 05:00:00 UTC
+  const deadline = new Date("2026-02-05T05:00:00Z").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = deadline - now;
+
+    // Check if deadline has passed
+    if (distance < 0) {
+      if (countdownTimer) {
+        countdownTimer.style.display = "none";
+      }
+      // Dispatch custom event to notify other components
+      window.dispatchEvent(new CustomEvent("deadlineExpired"));
+      return true; // Stop the interval
+    }
+
+    // Calculate time units
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Format display
+    if (countdownDisplay) {
+      countdownDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    return false; // Continue the interval
+  }
+
+  // Initial check and update
+  const isExpired = updateCountdown();
+
+  // Set up interval only if not expired
+  if (!isExpired) {
+    const interval = setInterval(() => {
+      const expired = updateCountdown();
+      if (expired) {
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+</script>

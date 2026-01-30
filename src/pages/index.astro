@@ -12,6 +12,7 @@ import Partners from "../components/Partners.astro";
 import Venue from "../components/Venue.astro";
 import Footer from "../components/Footer.astro";
 import CookieConsent from "../components/CookieConsent.astro";
+import DeadlineExtensionModal from "../components/DeadlineExtensionModal.astro";
 
 // Import hero images for preload
 import heroMobile from "../assets/hero-image-mobile.webp";
@@ -49,6 +50,8 @@ import heroMobile from "../assets/hero-image-mobile.webp";
       type="image/webp"
       media="(max-width: 767px)"
       fetchpriority="high"
+      imagesrcset={`${heroMobile.src} 640w`}
+      imagesizes="100vw"
     />
 
     <!-- Optimized font loading with display=swap for better CLS -->
@@ -69,6 +72,20 @@ import heroMobile from "../assets/hero-image-mobile.webp";
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
       />
     </noscript>
+
+    <!-- Font fallback to reduce CLS -->
+    <style>
+      @font-face {
+        font-family: "Montserrat Fallback";
+        font-style: normal;
+        font-weight: 400;
+        src: local("Arial");
+        ascent-override: 104%;
+        descent-override: 28%;
+        line-gap-override: 0%;
+        size-adjust: 95%;
+      }
+    </style>
 
     <link
       rel="icon"
@@ -142,6 +159,7 @@ import heroMobile from "../assets/hero-image-mobile.webp";
       <Footer />
     </div>
     <CookieConsent />
+    <DeadlineExtensionModal />
 
     <!-- Google Analytics Custom Event Tracking -->
     <script is:inline>
@@ -211,6 +229,51 @@ import heroMobile from "../assets/hero-image-mobile.webp";
           if (section) observer.observe(section);
         });
       });
+    </script>
+
+    <!-- Expired Deadline State Handler -->
+    <script is:inline>
+      // Global handler for expired deadline state
+      function handleExpiredDeadline() {
+        // Update Hero section
+        const heroDeadlineBox = document.getElementById("hero-deadline-box");
+        if (heroDeadlineBox) {
+          heroDeadlineBox.innerHTML =
+            '<span class="text-khipu-white text-center font-semibold">Applications are closed. Thanks for applying!</span>';
+          heroDeadlineBox.classList.add("justify-center");
+        }
+
+        // Remove Hero Apply button from DOM
+        const heroApplyBtn = document.getElementById("hero-apply-btn");
+        if (heroApplyBtn) {
+          heroApplyBtn.remove();
+        }
+
+        // Update Apply section
+        const applyDeadlineBanner = document.getElementById(
+          "apply-deadline-banner",
+        );
+        if (applyDeadlineBanner) {
+          applyDeadlineBanner.innerHTML =
+            '<p class="text-khipu-white text-center text-xl font-semibold md:text-2xl">Applications are closed. Thank you for your interest!</p>';
+        }
+
+        // Remove Apply section button from DOM
+        const mainApplyBtn = document.getElementById("main-apply-btn");
+        if (mainApplyBtn) {
+          mainApplyBtn.remove();
+        }
+      }
+
+      // Check on page load
+      // Deadline: Feb 5, 2026 00:00:00 Quito Time (ECT/UTC-5) = Feb 5, 2026 05:00:00 UTC
+      const deadline = new Date("2026-02-05T05:00:00Z").getTime();
+      if (new Date().getTime() > deadline) {
+        handleExpiredDeadline();
+      }
+
+      // Listen for countdown expiry event
+      window.addEventListener("deadlineExpired", handleExpiredDeadline);
     </script>
   </body>
 </html>
